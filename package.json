@@ -1,26 +1,37 @@
 {
-  "name": "my-app1",
+  "name": "react-hm-admin",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
+    "@types/crypto-js": "^4.0.1",
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "@types/react": "^16.9.53",
     "@types/react-dom": "^16.9.8",
+    "antd": "^4.9.1",
+    "axios": "^0.21.0",
+    "crypto-js": "^4.0.0",
+    "particles-bg": "^2.5.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.2.2",
+    "react-router-config": "^5.1.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.1",
+    "redux": "^4.0.5",
+    "redux-thunk": "^2.3.0",
     "typescript": "^4.0.3",
     "web-vitals": "^0.2.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "env-cmd -e dev react-app-rewired start",
+    "build:prod": "env-cmd -e prod react-app-rewired build",
+    "build:qa": "react-app-rewired build",
+    "test": "react-app-rewired test"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +50,20 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/react-loadable": "^5.5.4",
+    "@types/react-redux": "^7.1.11",
+    "@types/react-router-config": "^5.0.1",
+    "@types/react-router-dom": "^5.1.6",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
+    "babel-plugin-import": "^1.13.3",
+    "customize-cra": "^1.0.0",
+    "env-cmd": "^10.1.0",
+    "less": "3.11.3",
+    "less-loader": "5",
+    "react-app-rewired": "^2.1.6"
   }
 }
