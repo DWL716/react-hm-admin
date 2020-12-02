@@ -14,6 +14,8 @@ function reducer(store = initialStore, action: IAction) {
       return {...store, isLogin: action.isLogin};
     case 'LOGIN_ACTION':
       return {...store, isLogin: action.isLogin};
+    case 'LOGIN_OUT':
+      return {...store, isLogin: action.isLogin};
     default:
       return store;
   }
