@@ -1,28 +1,32 @@
 import loginUtils from '../../../utils/loginUtils'
+import {login} from '../../../http/user'
 
 export const loginAction = () => ({
   type: 'IS_LOGIN',
   isLogin: true
 });
-export const loginOut = () => ({
-  type: 'LOGIN_OUT',
-  isLogin: false
-})
+export const loginOut = () => {
+  // loginUtils.deleteLoginState()
+  return {
+    type: 'LOGIN_OUT',
+    isLogin: false
+  }
+}
 
 export const loginActionFath = () => ({
   type: 'LOGIN_ACTION',
   isLogin: true
 })
 
+
 export const loginActionPromise = (value: any) => {
-  console.log(value);
-  const token = 'abs.abs.abs'
+
   // 将 token 存储到本地 local storage
-  loginUtils.saveLoginState(token)
-  
-  return (dispatch: (arg0: () => { type: string; isLogin: boolean; }) => void, getState: any) => {
-    console.log(getState(), 'getState');
-    
-    dispatch(loginActionFath() as any)
+  return (dispatch: (arg0: { type: string; isLogin: boolean; }) => void, getState: any) => {
+    login(value).then((res: any) => {
+      console.log(res);
+      dispatch(loginActionFath())
+      loginUtils.saveLoginState(res.token)
+    })
   }
 }

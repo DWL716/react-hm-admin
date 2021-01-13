@@ -1,14 +1,17 @@
 import store from '../store';
 import LocalStore from './LocalStore';
 import {loginAction, loginOut} from '../store/reducers/login/action'
-import { refreshToken } from '../http/user'
+// import { refreshToken } from '../http/user'
 
 const TokenKey = 'BLOG_JWT::token';
 const TokenDate = 'BLOG_JWT::date';
-let isRefreshing = false;
+// let isRefreshing = false;
 
 const loginUtils = {
   saveLoginState (token: string) {
+    if(!token) {
+      return
+    }
     LocalStore.set(TokenKey, token);
     // 过期时间处理 24小时后过期
     LocalStore.set(TokenDate, new Date().getTime() + 1860000);
@@ -45,24 +48,26 @@ const loginUtils = {
   // 4 获取token和刷新token
   // 注意： 此方法是获取token/刷新token 就会跟服务器打交道，就会发起请求，
   // 说明是异步处理的。 咱们又需要让它同步执行，所以
-  async getToken () {
+  getToken () {
     // 在这里面处理异步逻辑
     // 需求： 过期前30分钟刷新，
-    if( isRefreshing ) return LocalStore.get(TokenKey);
+    // if( isRefreshing ) return LocalStore.get(TokenKey);
 
     // 获取过期时间
     // 因为LocalStore获取的值是一个字符串
-    const overdue = parseInt(LocalStore.get(TokenDate) || '0', 10);
+    // const overdue = parseInt(LocalStore.get(TokenDate) || '0', 10);
     // 获取当前时间，
-    const now = new Date().getTime();
+    // const now = new Date().getTime();
 
-    try {
+    /* try {
       // 如果现在的时间（实际上是一个时间戳，毫秒数） 小于过期时间
       // 并且大于过期时间-约定的过期前时间 就应该去刷新token
       if( now < overdue && now > overdue - 1800000) {
         isRefreshing = true;
-
-        const res: any = await refreshToken(LocalStore.get(TokenKey) || '');
+        console.log(222222);
+        
+        // const res: any = await refreshToken(LocalStore.get(TokenKey) || '');
+        const res: any = await refreshToken();
         const token: string =  res.payload;
         this.saveLoginState( token );
         isRefreshing = false;
@@ -71,7 +76,7 @@ const loginUtils = {
       }
     } catch( error ) {
       return LocalStore.get(TokenKey);
-    }
+    } */
 
     return LocalStore.get(TokenKey);
   },

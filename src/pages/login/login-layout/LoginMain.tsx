@@ -10,13 +10,13 @@ import { Form, Button, Input, notification } from 'antd';
 import MD5 from 'crypto-js/md5';
 import { useDispatch } from 'react-redux';
 
-interface ILogin {
-  username: string;
-  password: string;
-}
+// interface ILogin {
+//   username: string;
+//   password: string;
+// }
 
 interface IProps {
-  fetch: (values: ILogin) => Promise<any>;
+  fetch: any;
   loading: boolean;
 }
 
@@ -54,13 +54,8 @@ const LoginMain: React.FC<IProps> = (props) => {
 
       // 如果套上了try catch
       try {
-        let fetchLogin = fetch({
-          username: values.username,
-          password: newPassword,
-        })
-        console.log(fetchLogin, '-cccc');
-        
-        await dispatch(fetchLogin);
+        await dispatch(fetch({username: values.username, password: newPassword}));
+        console.log('----------');
         
       } catch ( error ) {
 

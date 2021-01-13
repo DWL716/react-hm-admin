@@ -9,7 +9,6 @@ interface IProps extends RouteConfigComponentProps{
 const Auth: React.FC<IProps> = (props) => {
   const { route, location } = props;
   const isLogin = loginUtils.getUserState();
-  console.log(route);
   
   // 需要处理 判断路由
   // 如果没有登录，且不在登陆页

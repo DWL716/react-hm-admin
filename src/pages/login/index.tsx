@@ -5,7 +5,6 @@
  ***/
 import React, {memo} from 'react';
 import { Redirect } from 'react-router-dom';
-import useActions from '../../hooks/useActions';
 import { loginActionPromise } from '../../store/reducers/login/action';
 import ParticlesBg from 'particles-bg';
 import LoginMain from './login-layout/LoginMain';
@@ -30,7 +29,7 @@ const Login: React.FC<IProps> = (props) => {
         <div className='login-layout-header' />
         <LoginMain
           loading={loading}
-          fetch={loginActionPromise as any}
+          fetch={loginActionPromise}
         />
         <div className='login-layout-footer' />
         <ParticlesBg
