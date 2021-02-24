@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import UserInfo from './UserInfo';
+import Fullscreen from '../../../components/fullscreen/Fullscreen'
 import PickerColor from '../../../components/pick-color';
 import LocalStore from '../../../utils/LocalStore';
 import {setPrimaryColor} from '../../../store/reducers/layout/action'
@@ -11,7 +12,6 @@ import './index.less';
 interface IProps {}
 
 // 在线换肤 的原理 实际上是借助 window.less 这个属性
-// 具体怎么操作，马上讲来
 
 const ROUTE_BASE_NAME = process.env.PUBLIC_URL || '';
 const BASE_NAME = ROUTE_BASE_NAME ? ROUTE_BASE_NAME.replace('/', '') : '';
@@ -111,6 +111,7 @@ const RightMenu: React.FC<IProps> = (props) => {
         small
         type="sketch"
       />
+      <Fullscreen />
       <UserInfo />
     </div>
   )

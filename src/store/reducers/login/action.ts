@@ -1,5 +1,5 @@
 import loginUtils from '../../../utils/loginUtils'
-import {login} from '../../../http/user'
+import {login} from '../../../http/bureauLevel'
 
 export const loginAction = () => ({
   type: 'IS_LOGIN',

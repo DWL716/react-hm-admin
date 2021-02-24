@@ -1,6 +1,6 @@
 /***
- * @auth: dmx
- * @time: 2020/6/16
+ * @auth: 
+ * @time: 
  * @func: 主要用于书写组件的时候 无dispatch感知  方便使用
  ***/
 import { useMemo, DependencyList } from 'react';

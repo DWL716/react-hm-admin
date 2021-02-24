@@ -7,6 +7,7 @@ import {
 
 import loadings from '../loadings';
 import System from '../../pages/system'
+import BureauLevel from '../../pages/system/bureauLevel'
 import User from '../../pages/system/user'
 const system = [
   {
@@ -28,7 +29,7 @@ const system = [
     path: '/menu',
   },
   {
-    component: System,
+    component: BureauLevel,
     icon: <DashboardOutlined />,
     name: '部门管理',
     path: '/dept',

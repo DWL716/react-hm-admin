@@ -1,8 +1,3 @@
-/***
- * @auth: dmx
- * @time: 2020/7/2
- * @func: 颜色选择组件
- ***/
 import React, {
   memo, useMemo,
   useState,

@@ -2324,8 +2324,8 @@ a:active {
 
 .ant-btn-primary {
   color: #fff;
-  background-color: @primary-color!important;
-  border-color: @primary-color!important;
+  background-color: @primary-color;
+  border-color: @primary-color;
   box-shadow: 0 2px 0 rgba(0, 0, 0, 0.045);
 }
 
@@ -2701,6 +2701,14 @@ a:active {
 
 .ant-calendar-picker:hover .ant-calendar-picker-input:not(.ant-input-disabled) {
   border-color: @primary-color;
+}
+
+.ant-select-focused.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  border-color: @primary-color ;
+  box-shadow: 0 0 0 2px color(~`colorPalette("@{primary-color}", 2)`);
+}
+.ant-select-selector:hover {
+  border-color: @primary-color !important;
 }
 
 .ant-calendar-picker:focus .ant-calendar-picker-input:not(.ant-input-disabled) {
@@ -3670,6 +3678,10 @@ a:active {
 }
 
 .ant-tree li .ant-tree-node-content-wrapper.ant-tree-node-selected {
+  background-color: color(~`colorPalette("@{primary-color}", 2)`);
+}
+
+.ant-tree .ant-tree-node-content-wrapper.ant-tree-node-selected {
   background-color: color(~`colorPalette("@{primary-color}", 2)`);
 }
 

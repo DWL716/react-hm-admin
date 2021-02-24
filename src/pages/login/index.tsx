@@ -1,6 +1,6 @@
 /***
- * @auth: dmx
- * @time: 2020/6/19
+ * @auth:
+ * @time:
  * @func: 登录组件
  ***/
 import React, {memo} from 'react';

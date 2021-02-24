@@ -1,11 +1,3 @@
-/***
- * @auth: dmx
- * @time: 2020/7/17
- * @func:
- * @params:
- * @return:
- * @updateTime:
- ***/
 import React, {memo} from 'react';
 
 interface IProps {

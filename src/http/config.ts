@@ -1,4 +1,4 @@
-const devBaseURL: string = "http://172.18.100.101:8090";
+const devBaseURL: string = "http://172.18.100.102:8090";
 const proBaseURL: string = "http://172.18.100.104:8090";
 
 // version 为接口的版本

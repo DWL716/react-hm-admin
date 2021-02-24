@@ -16,7 +16,7 @@ import { CaretDownOutlined } from '@ant-design/icons';
 
 import {setDrawer} from '../../../store/reducers/layout/action'
 import loginUtils from '../../../utils/loginUtils'
-import {logOut} from '../../../http/user'
+import {logOut} from '../../../http/bureauLevel'
 
 interface IProps {
 

@@ -1,6 +1,4 @@
 /***
- * @auth: dmx
- * @time: 2020/6/20
  * @func: 返回具体的路由导航
  ***/
 import React from 'react';
