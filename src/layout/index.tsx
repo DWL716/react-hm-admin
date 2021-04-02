@@ -23,7 +23,7 @@ const { Header, Content } = Layout;
 const { Group } = Radio;
 const { Item } = Form;
 
-const AdminLayout: React.FC<RouteConfigComponentProps&any> = (props) => {
+const AdminLayout: React.FC<RouteConfigComponentProps & any> = (props) => {
   const { route, history, location } = props;
   const [form] = Form.useForm();
   // console.log(route, 'route=====');
@@ -126,7 +126,7 @@ const AdminLayout: React.FC<RouteConfigComponentProps&any> = (props) => {
                   <Radio value="light">light-亮色系</Radio>
                 </Group>
               </Item>
-              <Item 
+              <Item
                 label={`${lg[language]["setting"]}`}
                 name="language"
               >
@@ -166,4 +166,4 @@ const AdminLayout: React.FC<RouteConfigComponentProps&any> = (props) => {
   )
 }
 
-export default memo(AdminLayout)
+export default memo(AdminLayout);
