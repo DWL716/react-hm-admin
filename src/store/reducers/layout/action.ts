@@ -16,3 +16,10 @@ export const setPrimaryColor = (value: string) => {
     primaryColor: value
   }
 }
+export const setLanguage = (value: string) => {
+  LocalStore.set('language', value)
+  return {
+    type: 'SET_LANGUAGE',
+    language: value
+  }
+}

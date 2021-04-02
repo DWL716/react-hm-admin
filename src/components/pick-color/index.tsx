@@ -3,6 +3,7 @@ import React, {
   useState,
   useCallback,
 } from 'react';
+import {  useSelector } from 'react-redux'
 import {
   SketchPicker,
   GithubPicker,
@@ -12,6 +13,7 @@ import {
   ChromePicker,
 } from 'react-color';
 import { Popover } from 'antd';
+import lg from '../../static/language.json'
 
 import './index.less';
 
@@ -42,6 +44,7 @@ const PickColor: React.FC<IProps> = (props) => {
     onChangeComplete,
   } = props;
   const [displayColorPicker, setDisplayColorPicker] = useState(false);
+  const { language } = useSelector((state: any) => state.layout);
   const [color, setColor] = useState(themColor);
 
   const Picker: any = pikers[type];
@@ -81,7 +84,7 @@ const PickColor: React.FC<IProps> = (props) => {
 
     const swatch = (
       <Popover
-        content="更换主题色"
+        content={`${lg[language]["theme"]}`}
       >
         <div
           className="swatch"

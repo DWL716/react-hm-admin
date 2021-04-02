@@ -6,7 +6,7 @@
 import React, {memo} from 'react';
 import { Redirect } from 'react-router-dom';
 import { loginActionPromise } from '../../store/reducers/login/action';
-import ParticlesBg from 'particles-bg';
+// import ParticlesBg from 'particles-bg';
 import LoginMain from './login-layout/LoginMain';
 
 import './index.less';
@@ -32,10 +32,10 @@ const Login: React.FC<IProps> = (props) => {
           fetch={loginActionPromise}
         />
         <div className='login-layout-footer' />
-        <ParticlesBg
-          type="lines"
+        {/* <ParticlesBg
+          type="circle"
           bg
-        />
+        /> */}
       </div>
     </div>
   );

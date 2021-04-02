@@ -1,5 +1,5 @@
 import React, { memo, useCallback, useState } from 'react'
-import { Button, message } from 'antd'
+import { Button, message, DatePicker, Space } from 'antd'
 import MD5 from 'crypto-js/md5';
 
 import ModalComp from './components/modals'
@@ -67,6 +67,9 @@ const User: React.FC<IProps> = (props) => {
   const onBtnCallback = useCallback(() => {
     setModelVisible(true)
   }, [])
+  function onChange(date:any, dateString: any) {
+    console.log(date, dateString);
+  }
 
   return (<div>
     <ModalComp modelVisible={modelVisible}
@@ -79,6 +82,13 @@ const User: React.FC<IProps> = (props) => {
       onInputCall={onInputCall}
     />
     <Button type="primary" onClick={onBtnCallback}>新增</Button>
+    <Space direction="vertical">
+    <DatePicker onChange={onChange} />
+    <DatePicker onChange={onChange} picker="week" />
+    <DatePicker onChange={onChange} picker="month" />
+    <DatePicker onChange={onChange} picker="quarter" />
+    <DatePicker onChange={onChange} picker="year" />
+  </Space>,
   </div>)
 }
 

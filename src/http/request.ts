@@ -69,13 +69,15 @@ instance.interceptors.response.use(res => {
     // 请求出错,走到这里的话,多半是服务器的问题
     // 先来处理多次请求失败的情况,
     const { config } = error;
-    console.log(config, 'error');
+    // console.log(config, 'error');
     
     let retryCont = config.headers['axios-retry'] || 0;
     if( retryCont >= retry ) {
       // 告诉redux 重试次数已超过指定次数,应该修改状态, 然后组件里自动感应,变为true过后,就会提示用户
       // 提示方式有很多种,就看大家怎么定义 可以用 notification 也可以用ant-design 提供的 Alert组件
       // store.dispatch(setRetryTip(true));
+      message.error("网络请求失败")
+      
       return Promise.reject(error);
     }
     retryCont += 1;
@@ -97,6 +99,8 @@ instance.interceptors.response.use(res => {
     if( error.response.status >= 500 ) message.error('服务器错误');
   } else if( error.request ) {
     // ...
+    console.log('cc');
+    
   } else {
     // 其他错误
     message.error(error.message);

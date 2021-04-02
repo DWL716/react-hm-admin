@@ -115,6 +115,7 @@ export function watchFull(
     cancel,
   };
 }
+
 //全屏 https://www.cnblogs.com/xiaonian8/archive/2004/01/13/14124421.html
 /* export function requestFullScreen() {
   // 判断各种浏览器，找到正确的方法

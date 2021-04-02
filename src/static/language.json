@@ -1,0 +1,35 @@
+{
+  "zh_CN": {
+    "button": "新增",
+    "language": "中文",
+    "en-zh": "中文",
+    "en-us":"英文",
+    "ko-kr":"韩文",
+    "restoreSystemSettings": "恢复系统设置",
+    "preserve": "保存",
+    "setting": "语言设置",
+    "theme": "主题颜色"
+  },
+  "en_US": {
+    "button": "new add",
+    "language": "English",
+    "en-zh": "Chinese",
+    "en-us":"English",
+    "ko-kr":"Korean",
+    "restoreSystemSettings": "Restore system Settings",
+    "preserve": "preserve",
+    "setting": "Language",
+    "theme":"The theme color"
+  },
+  "ko_KR": {
+    "button": "신규 증가",
+    "language": "Korean",
+    "en-zh": "중국어",
+    "en-us":"영어",
+    "ko-kr":"한글",
+    "restoreSystemSettings": "시스템 설정 복구",
+    "preserve": "저장",
+    "setting": "언어 설정",
+    "theme": "테마 색상"
+  }
+}

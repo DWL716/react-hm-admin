@@ -196,7 +196,7 @@ const LeftTopSidebar: React.FC<IProps> = (props) => {
           className="logo-title"
           style={style.logoColor}
         >
-          hm-cms
+          宿舍管理系统
         </span>
       </div>
       {/* 手风琴列表 */}

@@ -1,6 +1,6 @@
 /***
- * @auth: dmx
- * @time: 2020/6/19
+ * @auth: 
+ * @time: 
  * @func: 登录表单的实现
  ***/
 import React, {
@@ -42,9 +42,6 @@ const LoginMain: React.FC<IProps> = (props) => {
 
       // 执行登录的逻辑
       // 希望成功登录 使用这个加密过后的密码
-      // 
-
-      // 2020-06-20 补充说明
       // 加入我们有这样的需求，我们希望在组件中去处理请求过后返回的数据，
       // async await 用一个变量去接受await的值的话，
       // 如果await后面是一个promise 那么 变量接收到的值就是成功的值，
@@ -69,7 +66,7 @@ const LoginMain: React.FC<IProps> = (props) => {
   return (
     <div className="login-layout-main">
       <div className='main-form'>
-        <h2>欢迎登录react_blog</h2>
+        <h2>欢迎登录管理系统</h2>
         <Form
           className="main-form-box"
           onFinish={handleLogin}
@@ -90,7 +87,7 @@ const LoginMain: React.FC<IProps> = (props) => {
               登录
             </Button>
           </Item>
-          <Item>
+          {/* <Item>
             <div className="main-form-box_other">
               <p>其他登录方式</p>
               <div className='any'>
@@ -99,7 +96,7 @@ const LoginMain: React.FC<IProps> = (props) => {
                 <span>GitHub</span>
               </div>
             </div>
-          </Item>
+          </Item> */}
         </Form>
       </div>
     </div>

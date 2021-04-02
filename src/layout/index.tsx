@@ -2,6 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { renderRoutes, RouteConfigComponentProps } from 'react-router-config'
 import { Layout, Drawer, Form, Radio, Button, Spin } from 'antd';
+import lg from '../static/language.json'
 
 import {
   MenuUnfoldOutlined,
@@ -12,7 +13,7 @@ import LeftTopSidebar from './left-top';
 import RightMenu from './components/right-menu';
 import TopMenu from './components/top-menu'
 import BreadcrumbComponent from './components/breadcrumb';
-import { setTheme, setDrawer } from '../store/reducers/layout/action'
+import { setTheme, setDrawer, setLanguage } from '../store/reducers/layout/action'
 import { getHttpMenu } from '../store/reducers/menu/action'
 
 
@@ -22,11 +23,12 @@ const { Header, Content } = Layout;
 const { Group } = Radio;
 const { Item } = Form;
 
-const AdminLayout: React.FC<RouteConfigComponentProps> = (props) => {
+const AdminLayout: React.FC<RouteConfigComponentProps&any> = (props) => {
   const { route, history, location } = props;
+  const [form] = Form.useForm();
   // console.log(route, 'route=====');
 
-  const { theme, drawer, primaryColor } = useSelector((state: any) => state.layout);
+  const { theme, drawer, primaryColor, language } = useSelector((state: any) => state.layout);
   const { topMenu } = useSelector((state: any) => state.menu)
 
   const dispatch = useDispatch()
@@ -40,7 +42,17 @@ const AdminLayout: React.FC<RouteConfigComponentProps> = (props) => {
   // 设置导航主题
   const handleSettingClick = useCallback((values) => {
     dispatch(setTheme(values.theme));
+    dispatch(setLanguage(values.language));
   }, [dispatch]);
+  // 恢复系统默认
+  const recoverSettingClick = useCallback((e) => {
+    dispatch(setTheme("dark"));
+    dispatch(setLanguage("zh_CN"));
+    form.setFieldsValue({
+      theme: "dark",
+      language: "zh_CN"
+    });
+  }, [dispatch, form]);
   // 设置右侧边栏的收缩
   const handleDrawerClose = () => {
     dispatch(setDrawer(false))
@@ -99,12 +111,14 @@ const AdminLayout: React.FC<RouteConfigComponentProps> = (props) => {
           >
             <Form
               onFinish={handleSettingClick}
+              form={form}
               initialValues={{
-                theme
+                theme,
+                language
               }}
             >
               <Item
-                label="导航主题"
+                label={`${lg[language]["theme"]}`}
                 name="theme"
               >
                 <Group value={theme}>
@@ -112,20 +126,30 @@ const AdminLayout: React.FC<RouteConfigComponentProps> = (props) => {
                   <Radio value="light">light-亮色系</Radio>
                 </Group>
               </Item>
+              <Item 
+                label={`${lg[language]["setting"]}`}
+                name="language"
+              >
+                <Group value={language}>
+                  <Radio value="zh_CN">{lg[language]["en-zh"]}</Radio>
+                  <Radio value="en_US">{lg[language]["en-us"]}</Radio>
+                  <Radio value="ko_KR">{lg[language]["ko-kr"]}</Radio>
+                </Group>
+              </Item>
               <Item>
                 <Button
-                  htmlType="submit"
+                  onClick={recoverSettingClick}
                   style={{
                     marginRight: "20px"
                   }}
                 >
-                  恢复系统设置
+                  {lg[language]["restoreSystemSettings"]}
                 </Button>
                 <Button
                   type="primary"
                   htmlType="submit"
                 >
-                  保存
+                  {lg[language]["preserve"]}
                 </Button>
               </Item>
             </Form>
